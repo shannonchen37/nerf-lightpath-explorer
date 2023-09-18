@@ -1,0 +1,7 @@
+numpy
+Pillow
+torch
+opencv-python
+open3d
+trimesh
+mitsuba==3.4.1
