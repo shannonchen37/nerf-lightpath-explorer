@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "classes": {
+    "background": {
+      "pixel": [
+        16,
+        16
+      ],
+      "primary_hit": false,
+      "secondary_samples": 0,
+      "volume_samples": 48,
+      "pixel_reconstruction_max_abs": 5.960464477539063e-08,
+      "stored_Li_vs_diagnostic_retrace_drift": 0.0,
+      "diagnostic_volume_sum_vs_final_Li_max_abs": 0.0,
+      "material_present": false,
+      "pdf_mis_fields_present": true
+    },
+    "diffuse": {
+      "pixel": [
+        141,
+        153
+      ],
+      "primary_hit": true,
+      "secondary_samples": 4144,
+      "volume_samples": 48,
+      "pixel_reconstruction_max_abs": 3.5762786865234375e-07,
+      "stored_Li_vs_diagnostic_retrace_drift": 0.074432373046875,
+      "diagnostic_volume_sum_vs_final_Li_max_abs": 0.0,
+      "material_present": true,
+      "pdf_mis_fields_present": true
+    },
+    "highlight": {
+      "pixel": [
+        151,
+        109
+      ],
+      "primary_hit": true,
+      "secondary_samples": 4304,
+      "volume_samples": 48,
+      "pixel_reconstruction_max_abs": 3.814697265625e-06,
+      "stored_Li_vs_diagnostic_retrace_drift": 0.0133056640625,
+      "diagnostic_volume_sum_vs_final_Li_max_abs": 0.0,
+      "material_present": true,
+      "pdf_mis_fields_present": true
+    },
+    "silhouette": {
+      "pixel": [
+        25,
+        112
+      ],
+      "primary_hit": true,
+      "secondary_samples": 1360,
+      "volume_samples": 48,
+      "pixel_reconstruction_max_abs": 3.8743019104003906e-07,
+      "stored_Li_vs_diagnostic_retrace_drift": 0.338897705078125,
+      "diagnostic_volume_sum_vs_final_Li_max_abs": 0.0,
+      "material_present": true,
+      "pdf_mis_fields_present": true
+    }
+  },
+  "viewer": "reimpl/d2_viewer/server.py",
+  "trace_json_export": true,
+  "exact_trace": "same D1 primary/path seeds, stored Li/contributions, and Gaussian reconstruction",
+  "nerf_volume_trace": "explicit diagnostic retrace; internal volume sum must reproduce that retrace Li, while stateful proposal positions may differ from stored final-render Li",
+  "fast_mode": "top-contribution subset for responsive inspection"
+}
