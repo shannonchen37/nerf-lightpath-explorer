@@ -1,0 +1,244 @@
+{
+  "status": "PASS",
+  "schema_version": "d3.1",
+  "teapot_pixel_count": 26,
+  "tolerance": 1e-05,
+  "max_attribution_abs": 4.844135963466556e-07,
+  "max_lobe_abs": 2.124963049965345e-08,
+  "pixels": [
+    {
+      "pixel": [
+        101,
+        144
+      ],
+      "attribution_max_abs": 4.44620620876357e-08,
+      "lobe_max_abs": 5.280190173984067e-10,
+      "recorded_reconstruction_max_abs": 1.4901161193847656e-07
+    },
+    {
+      "pixel": [
+        104,
+        126
+      ],
+      "attribution_max_abs": 3.0897028768794854e-08,
+      "lobe_max_abs": 1.1314191250555439e-09,
+      "recorded_reconstruction_max_abs": 2.086162567138672e-07
+    },
+    {
+      "pixel": [
+        107,
+        109
+      ],
+      "attribution_max_abs": 5.224347088272907e-08,
+      "lobe_max_abs": 1.5784223927894914e-09,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "attribution_max_abs": 1.6442580463849055e-08,
+      "lobe_max_abs": 7.534308732459749e-10,
+      "recorded_reconstruction_max_abs": 2.9802322387695312e-08
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "attribution_max_abs": 3.639691320556082e-08,
+      "lobe_max_abs": 7.972069671069448e-10,
+      "recorded_reconstruction_max_abs": 2.086162567138672e-07
+    },
+    {
+      "pixel": [
+        115,
+        156
+      ],
+      "attribution_max_abs": 2.8945104535438304e-08,
+      "lobe_max_abs": 1.1861872595275713e-09,
+      "recorded_reconstruction_max_abs": 4.76837158203125e-07
+    },
+    {
+      "pixel": [
+        117,
+        138
+      ],
+      "attribution_max_abs": 4.624394400742915e-08,
+      "lobe_max_abs": 2.8082073333379753e-09,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        118,
+        105
+      ],
+      "attribution_max_abs": 4.1358077795816683e-08,
+      "lobe_max_abs": 1.4185383978571053e-09,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        118,
+        146
+      ],
+      "attribution_max_abs": 6.357768089770843e-09,
+      "lobe_max_abs": 1.0062365940477491e-09,
+      "recorded_reconstruction_max_abs": 8.940696716308594e-08
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "attribution_max_abs": 3.5876233983600514e-08,
+      "lobe_max_abs": 9.927557664823894e-10,
+      "recorded_reconstruction_max_abs": 1.1920928955078125e-07
+    },
+    {
+      "pixel": [
+        122,
+        152
+      ],
+      "attribution_max_abs": 3.7921260354067954e-08,
+      "lobe_max_abs": 1.5827030797055386e-09,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        129,
+        87
+      ],
+      "attribution_max_abs": 7.833145632130112e-09,
+      "lobe_max_abs": 7.908455279537208e-10,
+      "recorded_reconstruction_max_abs": 5.960464477539063e-08
+    },
+    {
+      "pixel": [
+        130,
+        132
+      ],
+      "attribution_max_abs": 1.3334033588385807e-07,
+      "lobe_max_abs": 2.9870734774561924e-09,
+      "recorded_reconstruction_max_abs": 1.1920928955078125e-07
+    },
+    {
+      "pixel": [
+        131,
+        125
+      ],
+      "attribution_max_abs": 9.21221003924444e-08,
+      "lobe_max_abs": 4.831446576147869e-09,
+      "recorded_reconstruction_max_abs": 4.76837158203125e-07
+    },
+    {
+      "pixel": [
+        135,
+        135
+      ],
+      "attribution_max_abs": 2.7829696769288148e-08,
+      "lobe_max_abs": 3.5346241489264685e-09,
+      "recorded_reconstruction_max_abs": 5.960464477539062e-07
+    },
+    {
+      "pixel": [
+        135,
+        168
+      ],
+      "attribution_max_abs": 1.8182794436771843e-08,
+      "lobe_max_abs": 3.3574387714452314e-10,
+      "recorded_reconstruction_max_abs": 1.1920928955078125e-07
+    },
+    {
+      "pixel": [
+        138,
+        119
+      ],
+      "attribution_max_abs": 1.453713771581988e-07,
+      "lobe_max_abs": 4.018628207980157e-10,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        141,
+        153
+      ],
+      "attribution_max_abs": 1.2421638850845795e-07,
+      "lobe_max_abs": 1.9186157107498047e-09,
+      "recorded_reconstruction_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "pixel": [
+        144,
+        143
+      ],
+      "attribution_max_abs": 8.755654579140071e-08,
+      "lobe_max_abs": 1.7898784676617652e-09,
+      "recorded_reconstruction_max_abs": 2.384185791015625e-07
+    },
+    {
+      "pixel": [
+        147,
+        160
+      ],
+      "attribution_max_abs": 4.9996045525801946e-08,
+      "lobe_max_abs": 3.062682885079937e-09,
+      "recorded_reconstruction_max_abs": 1.1920928955078125e-07
+    },
+    {
+      "pixel": [
+        151,
+        109
+      ],
+      "attribution_max_abs": 4.844135963466556e-07,
+      "lobe_max_abs": 2.124963049965345e-08,
+      "recorded_reconstruction_max_abs": 3.814697265625e-06
+    },
+    {
+      "pixel": [
+        153,
+        123
+      ],
+      "attribution_max_abs": 2.3044302288610652e-07,
+      "lobe_max_abs": 4.8945012487422446e-09,
+      "recorded_reconstruction_max_abs": 4.76837158203125e-07
+    },
+    {
+      "pixel": [
+        156,
+        112
+      ],
+      "attribution_max_abs": 1.3467759973906368e-07,
+      "lobe_max_abs": 1.5193283076087027e-08,
+      "recorded_reconstruction_max_abs": 1.9073486328125e-06
+    },
+    {
+      "pixel": [
+        165,
+        122
+      ],
+      "attribution_max_abs": 1.8042762617298536e-07,
+      "lobe_max_abs": 1.3892353489808329e-08,
+      "recorded_reconstruction_max_abs": 4.76837158203125e-07
+    },
+    {
+      "pixel": [
+        25,
+        112
+      ],
+      "attribution_max_abs": 4.853380369818083e-08,
+      "lobe_max_abs": 1.4119348745733618e-09,
+      "recorded_reconstruction_max_abs": 3.8743019104003906e-07
+    },
+    {
+      "pixel": [
+        76,
+        141
+      ],
+      "attribution_max_abs": 1.8935635859307354e-07,
+      "lobe_max_abs": 2.8174158561711238e-09,
+      "recorded_reconstruction_max_abs": 5.960464477539062e-07
+    }
+  ]
+}

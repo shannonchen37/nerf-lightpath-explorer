@@ -1,0 +1,759 @@
+{
+  "status": "PASS",
+  "schema_version": "d3.1",
+  "checked_paths": 50,
+  "tolerance": 1e-12,
+  "max_error": 0.0,
+  "checks": [
+    {
+      "pixel": [
+        151,
+        109
+      ],
+      "path_id": "460094:3",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        144,
+        143
+      ],
+      "path_id": "605574:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        156,
+        112
+      ],
+      "path_id": "472596:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "path_id": "634053:1",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        165,
+        122
+      ],
+      "path_id": "514366:13",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        117,
+        138
+      ],
+      "path_id": "580125:1",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "path_id": "629936:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        122,
+        152
+      ],
+      "path_id": "638497:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        156,
+        112
+      ],
+      "path_id": "485116:7",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        101,
+        144
+      ],
+      "path_id": "600699:13",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        130,
+        132
+      ],
+      "path_id": "551278:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        76,
+        141
+      ],
+      "path_id": "596172:5",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "path_id": "551092:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "path_id": "496846:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        141,
+        153
+      ],
+      "path_id": "642899:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        135,
+        135
+      ],
+      "path_id": "567945:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        156,
+        112
+      ],
+      "path_id": "472626:0",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        115,
+        156
+      ],
+      "path_id": "663327:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        104,
+        126
+      ],
+      "path_id": "530002:10",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        104,
+        126
+      ],
+      "path_id": "542529:3",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "path_id": "621583:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "path_id": "496811:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        117,
+        138
+      ],
+      "path_id": "580160:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        118,
+        146
+      ],
+      "path_id": "617594:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        151,
+        109
+      ],
+      "path_id": "468393:1",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        101,
+        144
+      ],
+      "path_id": "609055:3",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        118,
+        146
+      ],
+      "path_id": "621775:15",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        165,
+        122
+      ],
+      "path_id": "514382:14",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        135,
+        168
+      ],
+      "path_id": "713564:8",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        135,
+        135
+      ],
+      "path_id": "563814:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        151,
+        109
+      ],
+      "path_id": "455912:15",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        165,
+        122
+      ],
+      "path_id": "518519:4",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        115,
+        156
+      ],
+      "path_id": "650854:10",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        135,
+        168
+      ],
+      "path_id": "709373:8",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "path_id": "629919:5",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        131,
+        125
+      ],
+      "path_id": "534648:3",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "path_id": "551106:4",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        117,
+        138
+      ],
+      "path_id": "580166:10",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        122,
+        152
+      ],
+      "path_id": "646784:12",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        141,
+        153
+      ],
+      "path_id": "642973:11",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        118,
+        146
+      ],
+      "path_id": "613440:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "path_id": "496822:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "path_id": "538586:13",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        108,
+        149
+      ],
+      "path_id": "638224:10",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        76,
+        141
+      ],
+      "path_id": "604441:4",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "path_id": "538587:0",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        135,
+        135
+      ],
+      "path_id": "563834:5",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "path_id": "484309:4",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        120,
+        129
+      ],
+      "path_id": "555238:9",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    },
+    {
+      "pixel": [
+        109,
+        116
+      ],
+      "path_id": "484377:6",
+      "errors": {
+        "wi": 0.0,
+        "Li": 0.0,
+        "bsdf_pdf": 0.0,
+        "emitter_pdf": 0.0,
+        "mis_weight": 0.0,
+        "pixel_contribution": 0.0
+      }
+    }
+  ]
+}

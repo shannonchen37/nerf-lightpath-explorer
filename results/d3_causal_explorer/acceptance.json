@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "schema_version": "d3.1",
+  "trace_count": 32,
+  "presets": {
+    "background": {
+      "pixel": [
+        16,
+        16
+      ],
+      "present": true,
+      "reconstruction_max_abs": 5.960464477539063e-08,
+      "shading_regime": "Background NeRF pixel"
+    },
+    "diffuse": {
+      "pixel": [
+        141,
+        153
+      ],
+      "present": true,
+      "reconstruction_max_abs": 3.5762786865234375e-07,
+      "shading_regime": "Diffuse-dominated"
+    },
+    "highlight": {
+      "pixel": [
+        151,
+        109
+      ],
+      "present": true,
+      "reconstruction_max_abs": 3.814697265625e-06,
+      "shading_regime": "Specular-dominated"
+    },
+    "silhouette": {
+      "pixel": [
+        25,
+        112
+      ],
+      "present": true,
+      "reconstruction_max_abs": 3.8743019104003906e-07,
+      "shading_regime": "Diffuse-dominated"
+    }
+  },
+  "extra_cases": {
+    "high_contribution_specular_path": {
+      "path_id": "464223:3",
+      "luminance": 0.06556829978644496
+    },
+    "occluded_path": {
+      "path_id": "600662:0",
+      "contribution": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "vmf_dominant_pixel": {
+      "pixel": [
+        165,
+        122
+      ],
+      "vmf_fraction": 0.8315223087856926
+    }
+  },
+  "attribution_closure": "PASS",
+  "ui_path_consistency": "PASS"
+}

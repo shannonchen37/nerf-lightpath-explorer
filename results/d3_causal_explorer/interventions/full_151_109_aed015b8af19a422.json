@@ -1,0 +1,90 @@
+{
+  "schema_version": "d3.1",
+  "status": "PASS",
+  "mode": "FULL_PIXEL_RERENDER",
+  "pixel": [
+    151,
+    109
+  ],
+  "intervention": {
+    "roughness": 0.6,
+    "base_color": null,
+    "specular": 1.0,
+    "F0": 0.08
+  },
+  "original": {
+    "rgb": [
+      6.1995320320129395,
+      5.869240760803223,
+      2.306534767150879
+    ],
+    "material": {
+      "base_color": [
+        0.8635861277580261,
+        0.8195515871047974,
+        0.3332770764827728
+      ],
+      "roughness": 0.23529411852359772,
+      "specular": 1.0,
+      "metallic": 0.0,
+      "F0": 0.08,
+      "ior": 1.7887885053796064,
+      "type": "Mitsuba principled"
+    }
+  },
+  "result": {
+    "rgb": [
+      2.6454010009765625,
+      2.441568613052368,
+      0.6137475967407227
+    ],
+    "diffuse_rgb": [
+      2.1090567111968994,
+      1.9421169757843018,
+      0.38099533319473267
+    ],
+    "specular_rgb": [
+      0.5363445281982422,
+      0.49945151805877686,
+      0.23275226354599
+    ],
+    "bsdf_sampled_rgb": [
+      0.7105173468589783,
+      0.6368201375007629,
+      0.1509162038564682
+    ],
+    "vmf_sampled_rgb": [
+      1.9348838329315186,
+      1.8047484159469604,
+      0.46283140778541565
+    ],
+    "visible_rgb": [
+      2.6454012393951416,
+      2.441568374633789,
+      0.6137475967407227
+    ],
+    "occluded_zeroed_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "background_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "top_fractions": {
+      "1": 0.024071043357253075,
+      "5": 0.07585914433002472,
+      "10": 0.11496280133724213,
+      "20": 0.17167067527770996,
+      "50": 0.29549726843833923
+    },
+    "diffuse_fraction": 0.7907370328903198,
+    "specular_fraction": 0.20926278829574585,
+    "path_direction_sha256": "e7345d7ab41e576e59d874a7831c846c4133d1a9091a2cd35d438b08745e8e2d"
+  },
+  "repeat_count": 2,
+  "reproducibility_max_abs": 0.0,
+  "causal_semantics": "material changes BSDF proposal, wi, visibility, NeRF Li, PDF/MIS, and contribution"
+}
