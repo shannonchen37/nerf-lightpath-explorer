@@ -2,9 +2,6 @@
   <img src="demo.png" alt="NeRF LightPath Explorer interactive causal transport interface" width="100%">
 </p>
 
-# NeRF LightPath Explorer
-
-An independent reconstruction and interactive extension of earlier research work on decomposed NeRF–surface light transport for physics-based inverse rendering (PBIR). **This repository is not a fork of NeRF-Emitter.** The later public [`gerwang/nerf-emitter`](https://github.com/gerwang/nerf-emitter) implementation is used here as an external reference for numerical and visual parity validation.
 
 ## Project origin
 
@@ -135,11 +132,3 @@ results/                     Bundled presets and compact validation artifacts
 reports/                     Technical, schema and public-narrative audits
 demo.png                     Interface overview
 ```
-
-## Dependencies
-
-Mitsuba 3, Nerfstudio, PyTorch, Open3D, Trimesh, NumPy and Pillow are actual software dependencies where noted. Each remains subject to its own license. The public NeRF-Emitter repository has the distinct role of external validation reference; it is not treated as a dependency codebase and is not redistributed here.
-
-## Reference implementation and acknowledgements
-
-The public [`gerwang/nerf-emitter`](https://github.com/gerwang/nerf-emitter) repository is acknowledged as the external implementation used to reproduce the teapot benchmark and check numerical and visual parity. This repository does not claim authorship of NeRF-Emitter and does not vendor its source, scene assets or checkpoints. Users performing parity validation should follow that project's license and citation requirements, as well as those of the software dependencies listed above.
