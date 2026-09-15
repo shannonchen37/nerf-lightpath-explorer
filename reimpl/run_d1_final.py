@@ -1,4 +1,4 @@
-"""Render and evaluate the official-style D1 visual reproduction."""
+"""Render D1 and evaluate the reconstruction against its parity target."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from PIL import Image,ImageDraw
 
 from reimpl.hybrid_teapot.demo_renderer import gaussian_splat,jittered_primary_rays,trace_primary,center_camera_rays
 from reimpl.hybrid_teapot.mitsuba_principled import MitsubaPrincipledTextureBSDF
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.hybrid_teapot.teapot_geometry import ExplicitTeapotGeometry
 from reimpl.run_h5r_image_comparison import load_exr
 from reimpl.run_r2_mirror_sphere import display_transform,save_exr,save_png
@@ -35,8 +35,8 @@ def bbox(mask:torch.Tensor,pad:int=8) -> tuple[int,int,int,int]:
 def save_comparisons(reference:torch.Tensor,ours:torch.Tensor,mask:torch.Tensor) -> None:
     a=display_transform(reference); b=display_transform(ours)
     side=np.concatenate((a,b),axis=1); canvas=Image.fromarray(side); draw=ImageDraw.Draw(canvas)
-    draw.rectangle((0,0,150,20),fill=(15,15,15)); draw.text((5,5),"Official raw",fill=(255,255,255))
-    draw.rectangle((RES,0,RES+150,20),fill=(15,15,15)); draw.text((RES+5,5),"Ours official-style",fill=(255,255,255)); canvas.save(OUT/"side_by_side.png")
+    draw.rectangle((0,0,150,20),fill=(15,15,15)); draw.text((5,5),"Reference raw",fill=(255,255,255))
+    draw.rectangle((RES,0,RES+150,20),fill=(15,15,15)); draw.text((RES+5,5),"Reconstructed",fill=(255,255,255)); canvas.save(OUT/"side_by_side.png")
     delta=(ours-reference).abs().mean(-1); scale=torch.quantile(delta,.99).clamp_min(1e-8); shown=(delta/scale).clamp(0,1)
     heat=torch.stack((shown,shown.sqrt(),torch.zeros_like(shown)),-1); Image.fromarray((heat.cpu().numpy()*255+.5).astype(np.uint8)).save(OUT/"difference.png")
     relative=(delta/reference.abs().mean(-1).clamp_min(1e-3)).clamp(0,4)/4
@@ -59,7 +59,7 @@ def main() -> None:
     finally: os.chdir(previous)
     camera=test.cameras.flatten()[0]; geometry=ExplicitTeapotGeometry(ASSETS/"mesh.obj",ASSETS/"reflectance.png",ASSETS/"roughness.png")
     bsdf=MitsubaPrincipledTextureBSDF(ASSETS/"reflectance.png",ASSETS/"roughness.png",specular=1.0)
-    vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
+    vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
     samples=jittered_primary_rays(emitter,camera,RES,PRIMARY_SPP,12001,border_size=2)
     uv_in=OUT/"jittered_uv_input.npz"; uv_out=OUT/"jittered_uv_output.npz"
     np.savez(uv_in,o=samples.origins.cpu().numpy(),d=samples.directions.cpu().numpy())
@@ -84,11 +84,11 @@ def main() -> None:
                 "psnr_db":float(20*torch.log10(peak/rmse.clamp_min(1e-12))),"mean_signed":float(d.mean()),"max_abs":float(d.abs().max())}
     metrics={"status":"PASS","resolution":[RES,RES],"effective_surface_spp":PRIMARY_SPP*SECONDARY_SPP,
              "primary_spp":PRIMARY_SPP,"secondary_spp_per_primary":SECONDARY_SPP,"seconds":elapsed,
-             "sampling":"50% official checkpoint vMF + 50% official principled BSDF, balanced MIS",
+             "sampling":"50% reference-checkpoint vMF + 50% parity-validated principled BSDF, balanced MIS",
              "primary_filter":"independent uniform jitter, border=2, Mitsuba Gaussian stddev=0.5/radius=2 splat",
              "regions":{"full":region(torch.ones_like(interior)),"teapot":region(interior),"highlight":region(highlight)},
              "display_ssim":ssim,"silhouette_mismatch_pixels":int((center_hit!=official_mask).sum()),
-             "firefly_definition":"teapot abs luminance error versus official raw > 1.0",
+             "firefly_definition":"teapot abs luminance error versus reference raw > 1.0",
              "firefly_count":int((lum_error[interior]>FIREFLY_THRESHOLD).sum()),
              "p99_teapot_abs_luminance_error":float(torch.quantile(lum_error[interior],.99)),
              "all_finite":bool(torch.isfinite(ours).all()),"renderer_diagnostics":trace.diagnostics,

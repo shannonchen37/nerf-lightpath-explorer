@@ -1,4 +1,4 @@
-"""H5R official camera and official one-sample-MIS integrator, no NeRF."""
+"""Validate the reference camera and one-sample-MIS integrator without NeRF."""
 
 from __future__ import annotations
 

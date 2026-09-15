@@ -1,4 +1,4 @@
-"""D1 sampling A/B: cosine, BSDF, official vMF, and official one-sample MIS."""
+"""D1 sampling A/B: cosine, BSDF, reconstructed vMF, and reference MIS."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from PIL import Image,ImageDraw
 
 from reimpl.hybrid_teapot.demo_renderer import center_camera_rays,render_center
 from reimpl.hybrid_teapot.mitsuba_principled import MitsubaPrincipledTextureBSDF
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.hybrid_teapot.teapot_geometry import ExplicitTeapotGeometry
 from reimpl.run_r2_mirror_sphere import display_transform,save_exr,save_png
 from reimpl.tests._common import CHECKPOINT_PATH,load_emitter
@@ -58,7 +58,7 @@ def main() -> None:
     camera=test.cameras.flatten()[0]; rays=center_camera_rays(emitter,camera,RES)
     geometry=ExplicitTeapotGeometry(ASSETS/"mesh.obj",ASSETS/"reflectance.png",ASSETS/"roughness.png")
     bsdf=MitsubaPrincipledTextureBSDF(ASSETS/"reflectance.png",ASSETS/"roughness.png",specular=1.0)
-    vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
+    vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
     origins=rays.origins_external.reshape(-1,3); directions=rays.directions_external.reshape(-1,3)
     oracle_in=AB/"uv_input.npz"; oracle_out=AB/"uv_output.npz"
     np.savez(oracle_in,primary_o=origins.cpu().numpy(),primary_d=directions.cpu().numpy(),

@@ -1,4 +1,4 @@
-"""R3 GGX equations generalized to official per-surface texture values."""
+"""R3 GGX equations generalized to reference-benchmark surface textures."""
 
 from __future__ import annotations
 
@@ -56,4 +56,3 @@ def evaluate_textured_dielectric_ggx(
     if not torch.isfinite(brdf).all():
         raise RuntimeError("non-finite textured GGX")
     return TexturedGGXEvaluation(brdf, diffuse, specular, D, F, G, nol)
-

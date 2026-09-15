@@ -14,7 +14,7 @@ from reimpl.hybrid_teapot.demo_renderer import camera_rays_from_positions,jitter
 from reimpl.hybrid_teapot.aabb_control import set_aabb_disabled
 from reimpl.hybrid_teapot.environment_query import EnvironmentNerfQuery
 from reimpl.hybrid_teapot.mitsuba_principled import MitsubaPrincipledTextureBSDF
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.hybrid_teapot.teapot_geometry import ExplicitTeapotGeometry,_bilinear
 from reimpl.run_h5r_image_comparison import load_exr
 from reimpl.tests._common import CHECKPOINT_PATH,load_emitter
@@ -53,7 +53,7 @@ def main() -> None:
     finally: os.chdir(previous)
     camera=test.cameras.flatten()[0]; geometry=ExplicitTeapotGeometry(ASSETS/"mesh.obj",ASSETS/"reflectance.png",ASSETS/"roughness.png")
     bsdf=MitsubaPrincipledTextureBSDF(ASSETS/"reflectance.png",ASSETS/"roughness.png",specular=1.0)
-    vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
+    vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
     primary=jittered_primary_rays(emitter,camera,RES,PRIMARY_SPP,PRIMARY_SEED,2)
     oracle=np.load(D1/"jittered_uv_output.npz"); uv_all=torch.from_numpy(oracle["uv"]).to(device).float()
     hit=geometry.intersect(primary.origins,primary.directions); hit_ids=torch.nonzero(hit.hit).squeeze(-1)

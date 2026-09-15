@@ -1,4 +1,4 @@
-"""Export a compact wireframe of the official teapot for the D3 WebGL view."""
+"""Export a compact wireframe of the reference teapot for the D3 WebGL view."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ MAX_EDGES = 6000
 def main() -> None:
     mesh = trimesh.load(MESH, process=False)
     if not isinstance(mesh, trimesh.Trimesh):
-        raise TypeError("official mesh.obj did not load as one Trimesh")
+        raise TypeError("reference mesh.obj did not load as one Trimesh")
     edges = np.asarray(mesh.edges_unique, dtype=np.int64)
     if len(edges) > MAX_EDGES:
         # Deterministic coverage over the full list; this is display geometry only.

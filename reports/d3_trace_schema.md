@@ -40,7 +40,7 @@ Each path has a stable ID `<primary_ray_id>:<sample_id>` and stores:
 - geometry: origin, `wi`, `cos_theta`, `NoV`;
 - visibility: `visible`, `occluded`;
 - environment: exact saved `Li` and its luminance;
-- response: full official Mitsuba principled `bsdf_f_cos`, plus diffuse/specular values whose sum closes to the full response;
+- response: full parity-validated Mitsuba principled `bsdf_f_cos`, plus diffuse/specular values whose sum closes to the full response;
 - sampling/MIS: `bsdf_pdf`, `emitter_pdf`, selected proposal PDF, source-selection probability and balance weight;
 - estimator values: sample contribution, Gaussian-filtered pixel contribution, luminance, energy fraction, rank and cumulative fraction;
 - `microfacet_diagnostic`: D/F/G, explicitly labelled diagnostic and not presented as a complete principled decomposition.

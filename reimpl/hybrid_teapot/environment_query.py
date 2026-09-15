@@ -28,7 +28,6 @@ class EnvironmentNerfQuery:
         self, origins: torch.Tensor, directions: torch.Tensor, camera_idx: int,
         near: float | torch.Tensor = 0.0, chunk_size: int = 16384,
     ) -> torch.Tensor:
-        """Official PBIR emitter semantics: zero density inside object AABB."""
+        """Reference-parity semantics: zero density inside the object AABB."""
         with set_aabb_disabled(self.emitter.model, True):
             return self.emitter.query_radiance(origins, directions, camera_idx, near, chunk_size)
-

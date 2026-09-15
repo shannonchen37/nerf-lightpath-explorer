@@ -1,4 +1,4 @@
-"""H5R official camera-0 sensor with a trivial non-NeRF scene."""
+"""Validate the reference camera-0 sensor with a trivial non-NeRF scene."""
 
 from __future__ import annotations
 

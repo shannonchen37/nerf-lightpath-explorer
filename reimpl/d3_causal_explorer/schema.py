@@ -123,7 +123,7 @@ def build_pixel_trace(raw: dict, gmm: dict) -> dict:
     dominant = components[0] if components else None
     why = {
         "pixel": raw["pixel"], "surface": "Teapot" if raw["primary_ray"]["hit"] else "Background NeRF",
-        "shading_regime": regime, "material": "Official recovered principled" if raw["material"] else None,
+        "shading_regime": regime, "material": "Parity-validated recovered principled" if raw["material"] else None,
         "roughness": raw["material"]["roughness"] if raw["material"] else None,
         "F0": raw["material"]["F0"] if raw["material"] else None,
         "dominant_lighting": ({"label": "Bright environment region", "gmm_component": dominant["component"],

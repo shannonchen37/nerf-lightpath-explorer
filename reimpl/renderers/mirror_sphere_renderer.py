@@ -43,7 +43,7 @@ def generate_pinhole_rays(emitter: Any, camera_idx: int = 0) -> CameraRays:
     height, width = int(camera.height.item()), int(camera.width.item())
     dtype, device = torch.float32, emitter.device
     # Camera calibration is stored on CPU. Compute the raster projection there,
-    # as the official Cameras implementation does, then transfer the finished
+    # as the parity-reference Cameras implementation does, then transfer the finished
     # rays. This avoids CPU-vs-CUDA rounding drift before the NeRF query.
     camera_device = camera.camera_to_worlds.device
     y, x = torch.meshgrid(

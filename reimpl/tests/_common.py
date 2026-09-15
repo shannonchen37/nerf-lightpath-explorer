@@ -15,8 +15,8 @@ CHECKPOINT_PATH = CONFIG_PATH.parent / "nerfstudio_models/step-000002319.ckpt"
 
 
 def load_emitter() -> StandaloneNerfEmitter:
-    return StandaloneNerfEmitter.from_official_checkpoint(
-        CONFIG_PATH, CHECKPOINT_PATH, device="cuda:0", official_repo_root=OFFICIAL_ROOT
+    return StandaloneNerfEmitter.from_reference_checkpoint(
+        CONFIG_PATH, CHECKPOINT_PATH, device="cuda:0", reference_repo_root=OFFICIAL_ROOT
     )
 
 

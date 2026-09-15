@@ -1,4 +1,4 @@
-"""Export the frozen official GMM/vMF proposal and per-surface diagnostics."""
+"""Export the frozen reference GMM/vMF proposal and per-surface diagnostics."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ import trimesh
 from PIL import Image
 
 from reimpl.hybrid_teapot.demo_renderer import center_camera_rays
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.hybrid_teapot.teapot_geometry import ExplicitTeapotGeometry
 from reimpl.tests._common import CHECKPOINT_PATH,load_emitter
 
@@ -23,7 +23,7 @@ OUT=ROOT/"results/d1_official_demo"; PC=OUT/"light_point_cloud"
 
 def main() -> None:
     OUT.mkdir(parents=True,exist_ok=True); PC.mkdir(exist_ok=True)
-    emitter=load_emitter(); device=emitter.device; vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
+    emitter=load_emitter(); device=emitter.device; vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,device)
     components=[{"index":i,"mean":vmf.position[i].tolist(),"std":float(vmf.std[i]),
                  "inv_variance":float(vmf.inv_var[i]),"mixture_weight":float(vmf.weight[i])} for i in range(64)]
     payload={"status":"PASS","source":"checkpoint vmf.position/weight/std","component_count":64,

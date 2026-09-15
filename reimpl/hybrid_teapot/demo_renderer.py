@@ -1,4 +1,4 @@
-"""Official-style forward sampler for the explicit hybrid teapot renderer."""
+"""Reference-validated forward sampler for the explicit hybrid teapot renderer."""
 
 from __future__ import annotations
 
@@ -56,7 +56,7 @@ def center_camera_rays(emitter:Any,camera:Any,resolution:int) -> CameraRays:
 
 def jittered_primary_rays(emitter:Any,camera:Any,resolution:int,spp:int,seed:int,
                           border_size:int=2) -> PrimarySamples:
-    """Independent uniform pixel jitter over the official Gaussian film border."""
+    """Independent uniform pixel jitter over the reference Gaussian film border."""
     axis=torch.arange(-border_size,resolution+border_size,dtype=torch.float32)
     py,px=torch.meshgrid(axis,axis,indexing="ij")
     px=px.reshape(-1,1).expand(-1,spp); py=py.reshape(-1,1).expand(-1,spp)

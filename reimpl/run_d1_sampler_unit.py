@@ -1,4 +1,4 @@
-"""Numerical validation of official vMF PDF and principled BSDF sampling."""
+"""Numerical parity validation of vMF PDF and principled BSDF sampling."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import numpy as np
 import torch
 
 from reimpl.hybrid_teapot.mitsuba_principled import MitsubaPrincipledTextureBSDF
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.run_h5_official_reference import ASSETS,OUTPUT as H5_OUTPUT,setup_pipeline
 from reimpl.tests._common import CHECKPOINT_PATH
 
@@ -21,7 +21,7 @@ def main() -> None:
     import drjit as dr
     import mitsuba as mi
     OUT.mkdir(parents=True,exist_ok=True); _,pipeline,_,_=setup_pipeline(); device=pipeline.device
-    vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,torch.device(device))
+    vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,torch.device(device))
     env=pipeline.sdf_scene.environment(); params=mi.traverse(env)
     parameter_error={
         "position":float((torch.from_numpy(np.asarray(params["position"])).to(device).reshape(64,3)-vmf.position).abs().max()),

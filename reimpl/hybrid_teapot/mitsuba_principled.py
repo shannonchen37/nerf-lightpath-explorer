@@ -1,4 +1,4 @@
-"""Official-compatible Mitsuba principled BSDF evaluation for explicit surfaces.
+"""Reference-compatible Mitsuba principled BSDF evaluation for explicit surfaces.
 
 Mitsuba's ``BSDF.eval`` returns ``f_r * abs(cos(theta_i))``.  This wrapper
 keeps H4's torch/Open3D geometry and NeRF estimator, while delegating the exact
@@ -49,7 +49,7 @@ def local_to_world(v: torch.Tensor, n: torch.Tensor) -> torch.Tensor:
 
 
 class MitsubaPrincipledTextureBSDF:
-    """Exact official texture-backed principled BSDF, evaluated in batches."""
+    """Parity-validated texture-backed principled BSDF, evaluated in batches."""
 
     def __init__(self, reflectance_path: Path, roughness_path: Path, specular: float = 1.0) -> None:
         mi = _mitsuba()
@@ -123,7 +123,7 @@ class MitsubaPrincipledTextureBSDF:
 
     def sample(self,normal:torch.Tensor,wo:torch.Tensor,uv:torch.Tensor,
                sample1:torch.Tensor,sample2:torch.Tensor) -> tuple[torch.Tensor,torch.Tensor,torch.Tensor]:
-        """Sample the installed official principled plugin; return world wi/pdf/delta."""
+        """Sample the installed reference-compatible plugin; return world wi/pdf/delta."""
         import drjit as dr
         mi=self.mi; shape=normal.shape
         if wo.shape!=shape or uv.shape!=shape[:-1]+(2,): raise ValueError("incompatible BSDF sample shapes")
@@ -142,7 +142,7 @@ class MitsubaPrincipledTextureBSDF:
 
 
 class MitsubaPrincipledConstantBSDF:
-    """Official principled mode for H6 constant opaque material presets."""
+    """Reference-compatible principled mode for constant opaque material presets."""
 
     def __init__(self, base_color: tuple[float, float, float], roughness: float,
                  metallic: float = 0.0, specular: float = 1.0) -> None:
@@ -161,7 +161,7 @@ class MitsubaPrincipledConstantBSDF:
 
 
 class MitsubaPrincipledInterventionBSDF(MitsubaPrincipledTextureBSDF):
-    """Official principled plugin with optional causal material overrides."""
+    """Reference-compatible principled plugin with causal material overrides."""
 
     def __init__(self, reflectance_path: Path, roughness_path: Path, *,
                  base_color: tuple[float, float, float] | None = None,

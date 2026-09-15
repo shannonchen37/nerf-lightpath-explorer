@@ -1,4 +1,4 @@
-"""Export the official raw and brightness-compensated NeRF light point cloud."""
+"""Export reference-validation raw and brightness-compensated NeRF light clouds."""
 
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ def main() -> None:
     lum = raw["lum_samples"].reshape(-1)
     summary = {
         "status": "PASS",
-        "source": "official nerfstudio.model_components.output_light_pc",
+        "source": "public-reference nerfstudio.model_components.output_light_pc",
         "checkpoint": str(checkpoint),
         "step": int(step),
         "ray_source": pipeline.config.ray_source,

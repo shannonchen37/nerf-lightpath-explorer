@@ -15,7 +15,7 @@ from reimpl.hybrid_teapot.aabb_control import set_aabb_disabled
 from reimpl.hybrid_teapot.demo_renderer import jittered_primary_rays
 from reimpl.hybrid_teapot.environment_query import EnvironmentNerfQuery
 from reimpl.hybrid_teapot.mitsuba_principled import MitsubaPrincipledInterventionBSDF
-from reimpl.hybrid_teapot.official_guiding import OfficialVmfMixture
+from reimpl.hybrid_teapot.reference_guiding import ReferenceVmfMixture
 from reimpl.hybrid_teapot.teapot_geometry import ExplicitTeapotGeometry, _bilinear
 from reimpl.tests._common import CHECKPOINT_PATH, load_emitter
 
@@ -100,7 +100,7 @@ def full(raw, base_color, roughness, specular, emitter):
     finally: os.chdir(previous)
     geometry=ExplicitTeapotGeometry(ASSETS/"mesh.obj",ASSETS/"reflectance.png",ASSETS/"roughness.png")
     bsdf=MitsubaPrincipledInterventionBSDF(ASSETS/"reflectance.png",ASSETS/"roughness.png",base_color=base_color,roughness=roughness,specular=specular)
-    vmf=OfficialVmfMixture.from_checkpoint(CHECKPOINT_PATH,device); primary=jittered_primary_rays(emitter,camera,RES,PRIMARY_SPP,PRIMARY_SEED,2)
+    vmf=ReferenceVmfMixture.from_checkpoint(CHECKPOINT_PATH,device); primary=jittered_primary_rays(emitter,camera,RES,PRIMARY_SPP,PRIMARY_SEED,2)
     uv_all=torch.from_numpy(np.load(D1/"jittered_uv_output.npz")["uv"]).to(device).float(); hit=geometry.intersect(primary.origins,primary.directions)
     hit_ids=torch.nonzero(hit.hit).squeeze(-1); rank=torch.full((len(hit.hit),),-1,dtype=torch.long,device=device); rank[hit_ids]=torch.arange(len(hit_ids),device=device)
     generator=torch.Generator(device=device).manual_seed(PATH_SEED); uniforms=torch.rand((len(hit_ids),SECONDARY_SPP,4),generator=generator,device=device)
@@ -141,7 +141,7 @@ def main():
     payload={"schema_version":"d3.1","status":"PASS","mode":"FROZEN_PATH" if args.mode=="frozen" else "FULL_PIXEL_RERENDER",
              "pixel":list(pixel),"intervention":{"roughness":args.roughness,"base_color":base,"specular":args.specular,"F0":.08*args.specular},
              "original":{"rgb":raw["reconstructed_rgb"],"material":raw["material"]},"result":runs[0],"repeat_count":len(runs),
-             "reproducibility_max_abs":reproducibility,"causal_semantics":("same wi/Li/visibility; recompute official BSDF, dependent BSDF PDF/MIS, contribution" if args.mode=="frozen" else "material changes BSDF proposal, wi, visibility, NeRF Li, PDF/MIS, and contribution")}
+             "reproducibility_max_abs":reproducibility,"causal_semantics":("same wi/Li/visibility; recompute parity-validated BSDF, dependent BSDF PDF/MIS, contribution" if args.mode=="frozen" else "material changes BSDF proposal, wi, visibility, NeRF Li, PDF/MIS, and contribution")}
     name=f"{args.mode}_{pixel[0]}_{pixel[1]}_{key_for(args.mode,pixel,args.roughness,base,args.specular)}.json"; (OUT/name).write_text(json.dumps(payload,indent=2)); print(json.dumps({"status":"PASS","output":str(OUT/name),"rgb":payload["result"]["rgb"],"reproducibility_max_abs":reproducibility},indent=2))
 
 

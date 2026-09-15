@@ -1,4 +1,4 @@
-"""Explicit official teapot mesh intersection and texture lookup via Open3D BVH."""
+"""Explicit reference-teapot intersection and texture lookup via Open3D BVH."""
 
 from __future__ import annotations
 
@@ -60,7 +60,7 @@ class ExplicitTeapotGeometry:
         if not isinstance(mesh, trimesh.Trimesh):
             raise TypeError("expected one Trimesh")
         if mesh.visual.uv is None:
-            raise RuntimeError("official teapot mesh has no UV coordinates")
+            raise RuntimeError("reference teapot mesh has no UV coordinates")
         self.vertices = np.asarray(mesh.vertices, dtype=np.float32)
         self.faces = np.asarray(mesh.faces, dtype=np.uint32)
         self.vertex_uv = np.asarray(mesh.visual.uv, dtype=np.float32)

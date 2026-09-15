@@ -1,4 +1,4 @@
-"""H2 full/environment API must match direct official state control and restore state."""
+"""H2 full/environment API must match reference state control and restore state."""
 
 import torch
 

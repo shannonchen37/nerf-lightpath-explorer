@@ -1,8 +1,8 @@
-"""Standalone whole-ray HDR query API for an official NeRF-Emitter checkpoint.
+"""Standalone HDR query for the independently reconstructed PBIR pipeline.
 
-This module deliberately does not construct the official Mitsuba pipeline or a
-trainer. It reconstructs only the data-dependent Nerfacto model, loads its state,
-and reproduces the ray conversion performed by ``emitters/nerf_emitter_op.py``.
+It reconstructs only the data-dependent Nerfacto query model, without creating a
+Mitsuba training pipeline. An optional public NeRF-Emitter reference checkpoint
+is supported for coordinate, radiance, and numerical parity validation.
 """
 
 from __future__ import annotations
@@ -29,26 +29,26 @@ def _working_directory(path: Path) -> Iterator[None]:
         os.chdir(previous)
 
 
-def _bootstrap_official_imports(official_repo_root: Path) -> None:
-    for path in (official_repo_root, official_repo_root / "differentiable-sdf-rendering" / "python"):
+def _bootstrap_reference_imports(reference_repo_root: Path) -> None:
+    for path in (reference_repo_root, reference_repo_root / "differentiable-sdf-rendering" / "python"):
         path_string = str(path)
         if path_string not in sys.path:
             sys.path.insert(0, path_string)
 
 
 class StandaloneNerfEmitter:
-    """A forward-only wrapper around the official whole-ray SdfNerfacto model.
+    """Forward-only environment-radiance query used by the PBIR reconstruction.
 
     External convention:
         Mitsuba emitter-local coordinates. Positions use the unit-cube convention
-        consumed by the official NeRF emitter after applying its inverse
+        consumed by the parity-reference NeRF emitter after applying its inverse
         ``to_world`` transform. Directions are emitter-local vectors. ``near`` is
         expressed in the same ray parameterization and shifts the origin before
         conversion.
 
     Internal convention:
         Nerfstudio/OpenGL training coordinates, after scene scaling and the
-        official ``mi2gl_left`` axis permutation.
+        reference ``mi2gl_left`` axis permutation.
     """
 
     _MIN_STABLE_TCNN_CHUNK = 128
@@ -93,12 +93,12 @@ class StandaloneNerfEmitter:
         device: Union[str, torch.device] = "cuda",
         official_repo_root: Optional[Union[str, Path]] = None,
     ) -> "StandaloneNerfEmitter":
-        """Reconstruct and load only the official query-time Nerfacto model."""
+        """Compatibility API for loading a public parity-reference checkpoint."""
         config_path = Path(config_path).expanduser().resolve()
         if official_repo_root is None:
             official_repo_root = config_path.parents[5]
         official_repo_root = Path(official_repo_root).expanduser().resolve()
-        _bootstrap_official_imports(official_repo_root)
+        _bootstrap_reference_imports(official_repo_root)
 
         if not config_path.is_file():
             raise FileNotFoundError(config_path)
@@ -178,6 +178,22 @@ class StandaloneNerfEmitter:
             official_repo_root=official_repo_root,
         )
 
+    @classmethod
+    def from_reference_checkpoint(
+        cls,
+        config_path: Union[str, Path],
+        checkpoint_path: Optional[Union[str, Path]] = None,
+        device: Union[str, torch.device] = "cuda",
+        reference_repo_root: Optional[Union[str, Path]] = None,
+    ) -> "StandaloneNerfEmitter":
+        """Load the query model used for external reference-parity checks."""
+        return cls.from_official_checkpoint(
+            config_path,
+            checkpoint_path,
+            device,
+            official_repo_root=reference_repo_root,
+        )
+
     def _validate_rays(self, origins: torch.Tensor, directions: torch.Tensor) -> None:
         for name, tensor in (("origins", origins), ("directions", directions)):
             if not isinstance(tensor, torch.Tensor):
@@ -230,7 +246,7 @@ class StandaloneNerfEmitter:
     def external_to_nerfstudio(
         self, origins: torch.Tensor, directions: torch.Tensor, near: TensorLikeNear = 0.0
     ) -> tuple[torch.Tensor, torch.Tensor]:
-        """Apply the exact official near shift, scene scaling, and axis transform."""
+        """Apply the exact parity-reference near shift, scaling, and transform."""
         self._validate_rays(origins, directions)
         near_column = self._near_column(near, origins.shape[0])
         shifted_origins = origins + near_column * directions
@@ -256,7 +272,7 @@ class StandaloneNerfEmitter:
         camera_idx: TensorLikeIndex,
         near: TensorLikeNear = 0.0,
     ) -> Any:
-        """Convert public rays and construct the official internal RayBundle."""
+        """Convert public rays and construct the reference-compatible RayBundle."""
         from nerfstudio.cameras.rays import RayBundle
 
         ns_origins, ns_directions = self.external_to_nerfstudio(origins, directions, near)
@@ -280,7 +296,7 @@ class StandaloneNerfEmitter:
     ) -> torch.Tensor:
         """Return volume-rendered linear HDR RGB with shape ``[N,3]``.
 
-        The official model's query entry is intentionally retained. It runs in
+        The parity target's query entry is intentionally retained. It runs in
         deterministic eval mode and includes collider, proposal sampling, field
         evaluation, density weights, and RGB accumulation.
         """
@@ -360,5 +376,14 @@ def load_official_nerf_emitter(
     checkpoint_path: Optional[Union[str, Path]] = None,
     device: Union[str, torch.device] = "cuda",
 ) -> StandaloneNerfEmitter:
-    """Convenience wrapper around :meth:`from_official_checkpoint`."""
+    """Backward-compatible alias for loading a reference checkpoint."""
     return StandaloneNerfEmitter.from_official_checkpoint(config_path, checkpoint_path, device)
+
+
+def load_reference_nerf_environment(
+    config_path: Union[str, Path],
+    checkpoint_path: Optional[Union[str, Path]] = None,
+    device: Union[str, torch.device] = "cuda",
+) -> StandaloneNerfEmitter:
+    """Load the environment query used for public reference validation."""
+    return StandaloneNerfEmitter.from_reference_checkpoint(config_path, checkpoint_path, device)

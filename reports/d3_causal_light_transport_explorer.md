@@ -4,13 +4,17 @@
 
 **D3 CAUSAL LIGHT TRANSPORT EXPLORER: PASS**
 
-The D3 layer changes D2 from a trace/table inspector into a causal explorer organized by user questions: WHY, WHERE, HOW, INSIDE NeRF and WHAT IF. It consumes exact D1/D2 path data, adds exact contribution attribution and two controlled intervention modes, and leaves the official tracked source and D1 estimator untouched.
+The D3 layer changes D2 from a trace/table inspector into a causal explorer organized by user questions: WHY, WHERE, HOW, INSIDE NeRF and WHAT IF. It consumes exact D1/D2 path data, adds exact contribution attribution and two controlled intervention modes, and leaves the external reference implementation and D1 estimator untouched.
+
+## Provenance
+
+This work independently reconstructs and extends a research prototype developed during September 2023 – January 2024. The later public `gerwang/nerf-emitter` repository is an external numerical and visual parity target. It is not the codebase or fork base of this repository.
 
 ## Validation summary
 
 | Check | Result | Evidence |
 |---|---:|---|
-| D1 baseline | PASS | Frozen prior correctness baseline |
+| D1 reference-parity validation | PASS | Frozen prior correctness evidence |
 | D2 four-class acceptance after trace extension | PASS | `results/d2_pixel_inspector/acceptance.json` |
 | D3 schema/acceptance | PASS | 32 traces; all four presets and three extra cases present |
 | Attribution closure | PASS | 26 teapot pixels; max residual `4.8441e-7` (< `1e-5`) |
@@ -18,10 +22,10 @@ The D3 layer changes D2 from a trace/table inspector into a causal explorer orga
 | UI/backend selected-path consistency | PASS | 50 paths, max error `0.0` |
 | Frozen-path intervention | PASS | same `wi`, Li and visibility hashes; decomposition residual `1.1921e-7` |
 | Full-rerender reproducibility | PASS | two repeats, max RGB difference `0.0` |
-| Official tracked source | PASS | commit `8b927077a402515d4be48d747e2cae5f7b06e127`; `git diff --quiet` exit `0` |
+| External reference implementation | PASS | Kept unmodified during parity validation at commit `8b927077a402515d4be48d747e2cae5f7b06e127`; `git diff --quiet` exit `0` |
 | Chrome end-to-end | PASS | WHY/WHERE/HOW/NeRF/WHAT IF/background/presentation and live GPU1 interventions exercised |
 
-The official repository contains an existing untracked `scenes/` directory; this is not a tracked source modification.
+The external reference working copy contained a pre-existing untracked `scenes/` directory; this was not a tracked source modification.
 
 ## Highlight example `(151,109)`
 
@@ -51,7 +55,7 @@ Frozen mode changes material, BSDF, dependent MIS, contribution and pixel RGB wh
 2. **Can a highlight pixel answer why it is bright?** Yes. It reports the shading regime, material state, diffuse/specular split, dominant GMM bright region, top contributors and exact reconstruction.
 3. **Can it quantify Top N?** Yes. Top fractions, cumulative plot, threshold counts and Top-10/50/All partial reconstruction are calculated from exact pixel contributions.
 4. **Can it identify vMF/GMM directions?** Yes. The spherical direction view overlays exact BSDF/vMF samples, component centers/weights and GMM spatial centroids; component selection filters paths and highlights the 3D marker.
-5. **Does a selected path show the full chain?** Yes: sampling → visibility → Li → official BSDF response → MIS → sample/pixel contribution, including exact numeric substitution.
+5. **Does a selected path show the full chain?** Yes: sampling → visibility → Li → parity-validated BSDF response → MIS → sample/pixel contribution, including exact numeric substitution.
 6. **Can it enter NeRF diagnostic volume trace?** Yes. It displays all 48 diagnostic samples, curves, click-selected sample position and Li closure, with a prominent non-exact-internal-trace warning.
 7. **Can it prove pixel = sum(paths)?** Yes. Gaussian-weighted attribution closes over 26 teapot pixels with max residual `4.8441e-7`; background-direct is included separately.
 8. **Did frozen roughness intervention succeed?** Yes. Fixed-data hashes match and the recomputed decomposition closes.
@@ -62,6 +66,6 @@ Frozen mode changes material, BSDF, dependent MIS, contribution and pixel RGB wh
 
 ## UI and honesty boundaries
 
-The 3D view uses WebGL, a deterministic 6,000-edge display wireframe of the official mesh, contribution-mapped opacity, orbit/pan/zoom, top-N/isolate controls and CPU ray picking for table ↔ 3D linkage. The path table is virtualized. URL state preserves pixel/path/mode/tab. Investigation export emits trace/selected-path/summary/intervention JSON plus canvas PNGs and a standalone HTML report.
+The 3D view uses WebGL, a deterministic 6,000-edge display wireframe of the reference benchmark mesh, contribution-mapped opacity, orbit/pan/zoom, top-N/isolate controls and CPU ray picking for table ↔ 3D linkage. The path table is virtualized. URL state preserves pixel/path/mode/tab. Investigation export emits trace/selected-path/summary/intervention JSON plus canvas PNGs and a standalone HTML report.
 
 No light-source semantic names are inferred: the UI says only “bright environment region” and component/direction IDs. D/F/G are labelled microfacet diagnostics. The NeRF sample view is labelled diagnostic and never represented as the saved final D1 internal sequence.

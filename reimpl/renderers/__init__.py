@@ -1,4 +1,4 @@
-"""Renderers built around the standalone NeRF-emitter query."""
+"""Independent PBIR renderers using a standalone environment-radiance query."""
 
 from .mirror_sphere_renderer import (
     CameraRays,

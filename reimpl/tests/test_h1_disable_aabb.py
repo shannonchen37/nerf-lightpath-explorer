@@ -1,4 +1,4 @@
-"""Artifact acceptance for H1 official AABB density removal."""
+"""Artifact acceptance for H1 reference-AABB density removal."""
 
 import json
 from pathlib import Path
