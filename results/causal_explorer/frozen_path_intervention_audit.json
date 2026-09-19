@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "schema_version": "d3.1",
+  "pixel": [
+    151,
+    109
+  ],
+  "intervention": {
+    "roughness": 0.6,
+    "base_color": null,
+    "specular": 1.0,
+    "F0": 0.08
+  },
+  "fixed_fields": {
+    "wi": {
+      "before_sha256": "5af00d03f3ac467e78c075f7aee49681b7f61ff127e5a2bcefc3e325697e5d11",
+      "after_sha256": "5af00d03f3ac467e78c075f7aee49681b7f61ff127e5a2bcefc3e325697e5d11"
+    },
+    "Li": {
+      "before_sha256": "7b1025c781343e8f9fed85261d1abdbe4255e7cdab3afba445e57e5b5894df40",
+      "after_sha256": "7b1025c781343e8f9fed85261d1abdbe4255e7cdab3afba445e57e5b5894df40"
+    },
+    "visibility": {
+      "before_sha256": "1fa6b3c274234282032a6a686b67bf8ef5c75ab47884e7493c94c3af48f6efe4",
+      "after_sha256": "1fa6b3c274234282032a6a686b67bf8ef5c75ab47884e7493c94c3af48f6efe4"
+    }
+  },
+  "changed_nodes": [
+    "material",
+    "bsdf",
+    "mis",
+    "contribution",
+    "pixel_rgb"
+  ],
+  "fixed_nodes": [
+    "camera",
+    "primary_ray",
+    "geometry",
+    "surface",
+    "wi",
+    "visibility",
+    "nerf",
+    "Li"
+  ],
+  "original_rgb": [
+    6.1995320320129395,
+    5.869240760803223,
+    2.306534767150879
+  ],
+  "intervention_rgb": [
+    3.3924221992492676,
+    3.1496529579162598,
+    0.8031731843948364
+  ],
+  "decomposition_closure_max_abs": 1.1920928955078125e-07,
+  "source": "results/causal_explorer/interventions/frozen_151_109_485a59e00c9904ed.json"
+}

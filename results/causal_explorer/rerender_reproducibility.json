@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "schema_version": "d3.1",
+  "pixel": [
+    151,
+    109
+  ],
+  "intervention": {
+    "roughness": 0.6,
+    "base_color": null,
+    "specular": 1.0,
+    "F0": 0.08
+  },
+  "repeat_count": 2,
+  "deterministic_seed": {
+    "primary": 12001,
+    "path": 12002,
+    "nerf_diagnostic": 33001
+  },
+  "reproducibility_max_abs": 0.0,
+  "result_rgb": [
+    2.6454010009765625,
+    2.441568613052368,
+    0.6137475967407227
+  ],
+  "changed_nodes": [
+    "material",
+    "sampler",
+    "wi",
+    "visibility",
+    "nerf",
+    "Li",
+    "bsdf",
+    "mis",
+    "contribution",
+    "pixel_rgb"
+  ],
+  "fixed_nodes": [
+    "camera",
+    "primary_ray",
+    "geometry",
+    "surface"
+  ],
+  "source": "results/causal_explorer/interventions/full_151_109_aed015b8af19a422.json"
+}
